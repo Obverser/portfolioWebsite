@@ -1,5 +1,4 @@
 # portfolioWebsite
-A siimple, flask-based, portfolio website.
 --------------------------------------------
 Requirements:
 - Python 3.9.1
