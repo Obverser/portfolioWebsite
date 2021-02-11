@@ -1,0 +1,58 @@
+html {
+    height: 100% !important;
+}
+body {
+    background-color: #010101;
+    color: #fff;
+    font-family: Geneva, sans-serif;
+    text-align: center;
+    position: relative;
+    top: 45%;
+    margin-top:-10em;
+}
+.title {
+    font-weight: 500;
+    font-size: 5em;
+}
+#gitlist {
+    border-left: 6px solid #ffffff;
+    padding: 10px;
+    background-color: #111;
+    display: inline-block;
+}
+.name {
+    font-size: 2em;
+}
+@keyframes blink {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 10%;
+  }
+}
+.blink {
+  animation: blink 1s steps(1, start) infinite;
+}
+a:link {
+
+  text-decoration: none;
+
+}
+
+a:visited {
+
+  text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff
+}
+
+a:active {
+
+  text-decoration: none;
+
+}

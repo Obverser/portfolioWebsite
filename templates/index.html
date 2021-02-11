@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../static/index.css">
+        <title>Obverser.me</title>
+    </head>
+
+    <body>
+        <div>
+            <h1 class="title">
+                > <span id="webName">obverser.me</span><span class="blink"> _</span>
+            </h1>
+        </div>
+        <div id="gitlist">
+
+        </div>
+            <script>
+            let boolState = true;
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            $.ajax({
+                url: "https://api.github.com/users/Obverser/repos",
+                jsonp: true,
+                method: "GET",
+                dataType: "json",
+                success: function(res) {
+                    for (const r in res) {
+                        document.getElementById("gitlist").innerHTML = document.getElementById("gitlist").innerHTML + "<p class='githubProjects'> <div class='name'><a href='" + res[r].html_url + "'>" + res[r].name + "</a></div><br>" + res[r].description + "</p><br>";
+                    }
+                }
+            });
+            async function textChange() {
+                for (const index in document.getElementById("webName").innerText) {
+                    let docInner = document.getElementById("webName").innerText.split('')
+                    docInner.pop();
+                    document.getElementById("webName").innerText = docInner.join("");
+                    await sleep(80);
+                }
+                await sleep(200);
+                let newString;
+                if (boolState === true) {
+                    newString = ["g", "a", "b", "r", "i", "e", "l"];
+                    boolState = false;
+                } else {
+                    newString = ["o", "b", "v", "e", "r", "s", "e", "r", ".", "m", "e"];
+                    boolState = true;
+                }
+                for (const index in newString) {
+                    document.getElementById("webName").innerText = document.getElementById("webName").innerText + newString[index];
+                    await sleep(80);
+                }
+            }
+            setInterval(function() {
+                textChange();
+            }, 15000);
+            </script>
+    </body>
+</html>
